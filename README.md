@@ -50,6 +50,7 @@
 ### Installation
 
 Please see [the installation page on the GitLab website](https://www.gitlab.com/installation/).
+[manual installation](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/installation.md)
 
 ### New versions
 
