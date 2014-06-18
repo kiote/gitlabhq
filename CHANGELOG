@@ -13,6 +13,32 @@ v 7.0.0
   - Group masters can create projects in group
   - Deprecate ruby 1.9.3 support
   - Only masters can rewrite/remove git tags
+  - Add X-Frame-Options SAMEORIGIN to Nginx config so Sidekiq admin is visible
+  - UI improvements
+  - Case-insensetive search for issues
+  - Update to rails 4.1
+  - Improve performance of application for projects and groups with a lot of members
+  - Formally support Ruby 2.1
+  - Include Nginx gitlab-ssl config
+  - Add manual language detection for highlight.js
+  - Added example.com/:username routing
+  - Show notice if your profile is public
+  - UI improvements for mobile devices
+  - Improve diff rendering performance
+  - Drag-n-drop for issues and merge requests between states at milestone page 
+  - Fix '0 commits' message for huge repositories on project home page
+  - Prevent 500 error page when visit commit page from large repo
+  - Add notice about huge push over http to unicorn config
+  - File action in satellites uses default 30 seconds timeout instead of old 10 seconds one
+  - Overall performance improvements
+  - Skip init script check on omnibus-gitlab
+  - Be more selective when killing stray Sidekiqs
+  - Check LDAP user filter during sign-in
+  - Remove wall feature (no data loss - you can take it from database)
+  - Dont expose user emails via API unless you are admin 
+  - Detect issues closed by Merge Request description
+  - Better email subject lines from email on push service (Alex Elman)
+  - Enable identicon for gravatar be default
 
 v 6.9.2
   - Revert the commit that broke the LDAP user filter

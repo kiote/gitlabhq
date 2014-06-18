@@ -118,13 +118,13 @@
 
 @mixin page-title {
   color: #333;
-  font-size: 20px;
   line-height: 1.5;
+  font-weight: normal;
   margin-top: 0px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-@mixin str-truncated($max_width: "82%") {
+@mixin str-truncated($max_width: 82%) {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;

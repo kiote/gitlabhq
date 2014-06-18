@@ -204,10 +204,6 @@ module SharedPaths
     visit project_merge_requests_path(@project)
   end
 
-  step "I visit my project's wall page" do
-    visit project_wall_path(@project)
-  end
-
   step "I visit my project's wiki page" do
     visit project_wiki_path(@project, :home)
   end
@@ -264,6 +260,10 @@ module SharedPaths
     visit project_blob_path(@project, File.join(ValidCommit::ID, ValidCommit::BLOB_FILE_PATH))
   end
 
+  step 'I visit "Gemfile.lock" file in repo' do
+    visit project_blob_path(@project, File.join(root_ref, 'Gemfile.lock'))
+  end
+
   step 'I visit project source page for "8470d70"' do
     visit project_tree_path(@project, "8470d70")
   end
@@ -313,10 +313,6 @@ module SharedPaths
 
   step 'I visit project "Shop" team page' do
     visit project_team_index_path(project)
-  end
-
-  step 'I visit project "Shop" wall page' do
-    visit project_wall_path(project)
   end
 
   step 'I visit project wiki page' do

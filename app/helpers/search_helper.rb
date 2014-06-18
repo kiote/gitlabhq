@@ -61,7 +61,6 @@ module SearchHelper
         { label: "#{prefix} - Milestones",     url: project_milestones_path(@project) },
         { label: "#{prefix} - Snippets",       url: project_snippets_path(@project) },
         { label: "#{prefix} - Team",           url: project_team_index_path(@project) },
-        { label: "#{prefix} - Wall",           url: project_wall_path(@project) },
         { label: "#{prefix} - Wiki",           url: project_wikis_path(@project) },
       ]
     else
@@ -81,7 +80,7 @@ module SearchHelper
 
   # Autocomplete results for the current user's projects
   def projects_autocomplete(term, limit = 5)
-    Project.accessible_to(current_user).search_by_title(term).non_archived.limit(limit).map do |p|
+    ProjectsFinder.new.execute(current_user).search_by_title(term).non_archived.limit(limit).map do |p|
       {
         label: "project: #{search_result_sanitize(p.name_with_namespace)}",
         url: project_path(p)

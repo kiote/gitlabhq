@@ -209,12 +209,6 @@ Gitlab::Application.routes.draw do
         end
       end
 
-      resource :wall, only: [:show], constraints: {id: /\d+/} do
-        member do
-          get 'notes'
-        end
-      end
-
       resource :repository, only: [:show] do
         member do
           get "stats"
@@ -278,7 +272,12 @@ Gitlab::Application.routes.draw do
       end
 
       resources :team, controller: 'team_members', only: [:index]
-      resources :milestones, except: [:destroy], constraints: {id: /\d+/}
+      resources :milestones, except: [:destroy], constraints: {id: /\d+/} do
+        member do
+          put :sort_issues
+          put :sort_merge_requests
+        end
+      end
 
       resources :labels, only: [:index] do
         collection do
@@ -315,7 +314,7 @@ Gitlab::Application.routes.draw do
     end
   end
 
-  get ':id' => "groups#show", constraints: {id: /(?:[^.]|\.(?!atom$))+/, format: /atom/}
+  get ':id' => "namespaces#show", constraints: {id: /(?:[^.]|\.(?!atom$))+/, format: /atom/}
 
   root to: "dashboard#show"
 end

@@ -8,10 +8,13 @@ def linux_only(require_as)
   RUBY_PLATFORM.include?('linux') && require_as
 end
 
-gem "rails", "~> 4.0.0"
+gem "rails", "~> 4.1.0"
 
 gem "protected_attributes"
 gem 'rails-observers'
+
+# Make links from text
+gem 'rails_autolink', '~> 1.1'
 
 # Default values for AR models
 gem "default_value_for", "~> 3.0.0"
@@ -29,7 +32,7 @@ gem 'omniauth-github'
 
 # Extracting information from a git repository
 # Provide access to Gitlab::Git library
-gem "gitlab_git", '~> 5.8'
+gem "gitlab_git", '~> 6.0'
 
 # Ruby/Rack Git Smart-HTTP Server Handler
 gem 'gitlab-grack', '~> 2.0.0.pre', require: 'grack'
@@ -48,9 +51,6 @@ gem "grape", "~> 0.6.1"
 # Replace with rubygems when nesteted entities get released
 gem "grape-entity", "~> 0.4.2"
 gem 'rack-cors', require: 'rack/cors'
-
-# Email validation
-gem "email_validator", "~> 1.4.0", :require => 'email_validator/strict'
 
 # Format dates and times
 # based on human-friendly examples
@@ -155,6 +155,9 @@ gem "rack-attack"
 # Ace editor
 gem 'ace-rails-ap'
 
+# Semantic UI Sass for Sidebar
+gem 'semantic-ui-sass', '~> 0.16.1.0'
+
 gem "sass-rails", '~> 4.0.2'
 gem "coffee-rails"
 gem "uglifier"
@@ -198,7 +201,7 @@ group :development, :test do
   # gem 'rails-dev-tweaks'
   gem 'spinach-rails'
   gem "rspec-rails"
-  gem "capybara"
+  gem "capybara", '~> 2.2.1'
   gem "pry"
   gem "awesome_print"
   gem "database_cleaner"
@@ -206,7 +209,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   # Prevent occasions where minitest is not bundled in packaged versions of ruby (see #3826)
-  gem 'minitest', '~> 4.7.0'
+  gem 'minitest', '~> 5.3.0'
 
   # Generate Fake data
   gem "ffaker"
@@ -221,9 +224,9 @@ group :development, :test do
   gem 'rb-inotify', require: linux_only('rb-inotify')
 
   # PhantomJS driver for Capybara
-  gem 'poltergeist', '~> 1.4.1'
+  gem 'poltergeist', '~> 1.5.1'
 
-  gem 'jasmine', '2.0.0.rc5'
+  gem 'jasmine', '2.0.2'
 
   gem "spring", '1.1.1'
   gem "spring-commands-rspec", '1.0.1'
@@ -239,5 +242,5 @@ group :test do
 end
 
 group :production do
-  gem "gitlab_meta", '6.0'
+  gem "gitlab_meta", '7.0'
 end
