@@ -17,7 +17,6 @@ gem 'rails-observers'
 gem "default_value_for", "~> 3.0.0"
 
 # Supported DBs
-gem "mysql2", group: :mysql
 gem "pg", group: :postgres
 
 # Auth
